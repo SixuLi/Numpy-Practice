@@ -101,7 +101,37 @@ z = (z - np.mean(z)) / np.std(z)
 print(z)
 
 # 23. Create a custom dtype that describes a color as four unsigned bytes (RGBA)
-print(np.dtype([('R', np.ubyte), ('G', np.ubyte), ('B', np.ubyte), ('A', np.ubyte)]))
+print(np.dtype([('R', np.ubyte, 1), ('G', np.ubyte, 1), ('B', np.ubyte, 1), ('A', np.ubyte, 1)]))
 
 # 24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product)
-z = 
+a = np.random.random((5,3))
+b = np.random.random((3,2))
+print(np.dot(a,b))
+print(a @ b)
+
+# 25. Given a 1D array, negate all elements which are between 3 and 8, in place
+z = np. arange(1, 15)
+z[(3 <= z) & (z <= 8)] *= -1
+print(z)
+
+# 26. What is the output of the following script
+print(sum(range(5), -1))
+from numpy import *
+print(sum(range(5), -1)) # np.sum((range(5), -1)) -1 -> axis = -1
+
+# 27. Consider an integer vector Z, which of these expressions are legal
+Z = np.random.random(1)
+Z ** Z
+# 2 << Z >> 2 # inlegal
+Z <- Z
+1j * Z
+Z/1/1
+Z<Z>Z
+
+# 28. What are the result of the following expressions
+print(np.array(0) / np.array(0))
+print(np.array(0) // np.array(0))
+print(np.array([np.nan]).astype(int).astype(float))
+
+# 29. How to round away from zero a float array
+  
