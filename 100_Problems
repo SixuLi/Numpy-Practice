@@ -1,7 +1,7 @@
 # 1. Import the numpy package under the name np
 import numpy as np
 
-# 2. Print the numpy version and configuration 
+# 2. Print the numpy version and configuration
 print(np.__version__)
 np.show_config()
 
@@ -35,16 +35,17 @@ z = np.arange(9).reshape((3, -1))
 print(z)
 
 # 10. Find indices of non-zero elements from [1,2,0,0,4,0]
-print(np.nonzero([1,2,0,0,4,0]))
+print(np.nonzero([1, 2, 0, 0, 4, 0]))
 
 # 11. Create a 3x3 identity matrix
 z = np.eye(3)
 print(z)
 
 # 12.  Create a 3x3x3 array with random values
-z = np.random.random((3, 3, 3)) # Create with uniform distribution
+z = np.random.random((3, 3, 3))  # Create with uniform distribution
 print(z)
-z = 5 * np.random.random((3,2)) - 5 # Three-by-two array of random numbers from [-5, 0)
+# Three-by-two array of random numbers from [-5, 0)
+z = 5 * np.random.random((3, 2)) - 5
 
 # 13. Create a 10X10 array with random values and find the minimum and maximum values
 z = np.random.random((10, 10))
@@ -52,7 +53,7 @@ print(z)
 print('Maximum:', z.max())
 print('Minimum:', z.min())
 
-# 14. Create a random vector of size 30 and find the mean value 
+# 14. Create a random vector of size 30 and find the mean value
 z = np.random.random(30)
 print(z.mean())
 
@@ -63,7 +64,7 @@ print(z)
 
 # 16. How to add a border (fill with 0's) around an existing array
 z = np.ones((5, 5))
-print(np.pad(z, 1, mode = 'constant', constant_values = 0))
+print(np.pad(z, 1, mode='constant', constant_values=0))
 
 # 17. What is the result of the following expression
 # 0 * np.nan
@@ -80,7 +81,7 @@ print(np.nan in set([np.nan]))
 print(0.3 == 3 * 0.1)
 
 # 18. Create a 5x5 matrix with values 1,2,3,4 just below the diagonal
-print(np.diag([1,2,3,4], -1))
+print(np.diag([1, 2, 3, 4], -1))
 
 # 19. Create a 8x8 matrix and fill it with a checkerboard pattern
 z = np.zeros((8, 8))
@@ -89,4 +90,18 @@ z[1::2, 1::2] = 1
 print(z)
 
 # 20. Consider a (6,7,8) shape array, what is the index (x,y,z) of the 100th element
-print(np.unravel_index(100, (6,7,8)))
+print(np.unravel_index(100, (6, 7, 8)))
+
+# 21. Create a checkerboard 8x8 matrix using the tile function
+print(np.tile([[0,1], [0,1]], (4,4)))
+
+# 22. Normalize a 5x5 random matrix
+z = np.random.random((5,5))
+z = (z - np.mean(z)) / np.std(z)
+print(z)
+
+# 23. Create a custom dtype that describes a color as four unsigned bytes (RGBA)
+print(np.dtype([('R', np.ubyte), ('G', np.ubyte), ('B', np.ubyte), ('A', np.ubyte)]))
+
+# 24. Multiply a 5x3 matrix by a 3x2 matrix (real matrix product)
+z = 
