@@ -151,3 +151,26 @@ print(np.sqrt(-1))
 print(np.emath.sqrt(-1))
 print(np.sqrt(-1) == np.emath.sqrt(-1))
 
+# 33. How to get the dates of yesterday, today and tomorrow?
+yesterday = np.datetime64('today', 'D') - np.timedelta64(1, 'D')
+today = np.datetime64('today')
+tomorrow = np.datetime64('today', 'D') + np.timedelta64(1, 'D')
+print(yesterday, today, tomorrow)
+
+# 34. How to get all the dates corresponding to the month of July 2016?
+print(np.arange('2016-07', '2016-08', dtype = 'datetime64[D]'))
+
+# 35. How to compute ((A+B)*(-A/2)) in place (without copy)?
+A = np.ones(3) * 1
+B = np.ones(3) * 2
+np.add(A, B, out = B)
+np.divide(A, 2, out = A)
+np.negative(A, out = A)
+print(np.multiply(A, B, out = A))
+
+# 36. Extract the integer part of a random array using 5 different methods
+z = np.random.random(10)*10 - 2
+# method 1:
+print(np.ceil(z))
+# method 2:
+print(z.astype(int))
